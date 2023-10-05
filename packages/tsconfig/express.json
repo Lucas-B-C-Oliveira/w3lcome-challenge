@@ -1,7 +1,7 @@
 {
   "extends": [
     "./base.json",
-    "@rocketseat/eslint-config/node",
+    "@rocketseat/eslint-config/node"
   ],
   "include": [
     "src"
