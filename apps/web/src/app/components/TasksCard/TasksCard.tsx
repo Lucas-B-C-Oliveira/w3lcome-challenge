@@ -15,7 +15,7 @@ export function TasksCard({ tasks, meta }: TasksCardProps) {
         <h2 className="text-lg text-white font-bold p-[0.1rem]">Tasks</h2>
       </div>
 
-      <div className="px-6 py-3 flex flex-col gap-6">
+      <div className="px-6 pr-1 py-3 flex flex-col gap-6">
         {tasks.map((task: TaskData) => <Task key={task?.id} taskData={task} />)}
       </div>
 
