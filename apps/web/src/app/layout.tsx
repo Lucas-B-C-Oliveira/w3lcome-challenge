@@ -9,20 +9,17 @@ export const metadata: Metadata = {
 };
 
 interface Props {
-  modal: ReactNode
   children: ReactNode
 }
 
 export default async function RootLayout({
-  children,
-  modal
+  children
 }: Props) {
   return (
     <html lang="en">
       <Providers>
         <body className="w-screen h-screen">
           {children}
-          {modal}
         </body>
       </Providers>
     </html>
