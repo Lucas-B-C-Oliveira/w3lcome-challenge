@@ -8,6 +8,7 @@ export function useTask({ taskData }: UseTaskProps) {
 
   return {
     title: taskData?.title,
-    done: taskData?.done
+    done: taskData?.done,
+    id: taskData?.id
   }
 }
