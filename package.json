@@ -30,8 +30,10 @@
     "packages/*"
   ],
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@prisma/client": "^5.4.1",
+    "@tanstack/react-query": "^4.35.7",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
