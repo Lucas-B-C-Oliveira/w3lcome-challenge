@@ -10,8 +10,8 @@ This monorepo contains the following applications:
 ## Steps to run
 1. ``npm install`` (run on root folder) 
 2. ``cd ./apps/api``
-3. ``docker-compose up -d``
-4. ``npx prisma migrate dev``
+3. ``docker-compose up -d`` (OBS: you will need docker and docker-compose on your pc)
+4. ``npx prisma migrate dev`` (OBS: you will need prisma to run CLI commands, but just running npm install in the root folder should work)
 5.  check your ``.env`` on ``./apps/api`` and make sure you have the correct ``DATABASE_URL``. See ``.env.example``
 
 ### Common scripts for all applications:
