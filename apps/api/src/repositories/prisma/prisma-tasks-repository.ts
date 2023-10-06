@@ -13,12 +13,14 @@ export class PrismaTasksRepository implements TasksRepository {
     return tasks
   }
 
-  async edit(id: number, newData: Task) {
+  async edit(id: number, done: boolean) {
     const task = await prisma.task.update({
       where: {
         id,
       },
-      data: newData,
+      data: {
+        done
+      },
     })
 
     return task
