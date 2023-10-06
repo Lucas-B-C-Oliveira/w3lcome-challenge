@@ -9,14 +9,16 @@ export async function createTask(
   next: NextFunction
 ) {
 
-  const createTaskBodySchema = z.object({
-    title: z.string(),
-  })
-
-  const { title } = createTaskBodySchema.parse(req.body)
-  const done = false
 
   try {
+
+    const createTaskBodySchema = z.object({
+      title: z.string(),
+    })
+
+    const { title } = createTaskBodySchema.parse(req.body)
+    const done = false
+
     const createTask = makeCreateTaskUseCase();
 
     const { task } = await createTask.execute({

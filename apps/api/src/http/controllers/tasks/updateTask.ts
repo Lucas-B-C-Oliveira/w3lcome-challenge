@@ -9,15 +9,15 @@ export async function updateTask(
   res: Response,
   next: NextFunction
 ) {
-
-  const updateTaskBodySchema = z.object({
-    id: z.number(),
-    done: z.boolean()
-  })
-
-  const { id, done } = updateTaskBodySchema.parse(req.body)
-
   try {
+
+    const updateTaskBodySchema = z.object({
+      id: z.number(),
+      done: z.boolean()
+    })
+
+    const { id, done } = updateTaskBodySchema.parse(req.body)
+
     const updateTask = makeUpdateTaskUseCase();
 
     const { task } = await updateTask.execute({

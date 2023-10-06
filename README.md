@@ -11,6 +11,8 @@ Common scripts for all applications:
 
 ```
 npm run dev
+docker-compose up -d
+npx prisma migrate dev
 ```
 
 # API
