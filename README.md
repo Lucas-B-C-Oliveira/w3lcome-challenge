@@ -12,6 +12,7 @@ This monorepo contains the following applications:
 2. ``cd ./apps/api``
 3. ``docker-compose up -d``
 4. ``npx prisma migrate dev``
+5.  check your ``.env`` on ``./apps/api`` and make sure you have the correct ``DATABASE_URL``. See ``.env.example``
 
 ### Common scripts for all applications:
 
