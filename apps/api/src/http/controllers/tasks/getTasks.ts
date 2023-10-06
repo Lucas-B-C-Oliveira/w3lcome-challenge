@@ -17,12 +17,15 @@ export async function getTasks(
 
     const getTasks = makeGetTaskUseCase();
 
-    const { tasks } = await getTasks.execute({
+    const { tasks, meta } = await getTasks.execute({
       limit,
       offset
     });
 
-    res.status(200).send(tasks);
+    res.status(200).send({
+      tasks,
+      meta
+    });
   } catch (error) {
     console.log("error", error);
     next(error);
