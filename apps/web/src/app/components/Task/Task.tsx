@@ -45,7 +45,6 @@ export const Task = memo(function Task({ taskData }: TaskProps) {
         }>
 
           <EditTaskModal done={done} taskId={id} />
-
         </Container>
 
         <Container openModalButton={
