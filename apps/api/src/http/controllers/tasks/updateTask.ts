@@ -25,7 +25,7 @@ export async function updateTask(
       done,
     });
 
-    res.status(201).send(task);
+    res.status(200).send(task);
   } catch (error: any) {
     if (error instanceof ResourceNotFoundError) {
       res.status(404).send({ message: error?.message })
