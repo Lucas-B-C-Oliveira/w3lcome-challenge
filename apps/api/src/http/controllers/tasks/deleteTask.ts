@@ -11,11 +11,12 @@ export async function deleteTask(
 ) {
   try {
 
+
     const deleteTaskBodySchema = z.object({
-      id: z.number()
+      id: z.coerce.number()
     })
 
-    const { id } = deleteTaskBodySchema.parse(req.body)
+    const { id } = deleteTaskBodySchema.parse(req?.query)
 
     const deleteTask = makeDeleteTaskUseCase();
 
