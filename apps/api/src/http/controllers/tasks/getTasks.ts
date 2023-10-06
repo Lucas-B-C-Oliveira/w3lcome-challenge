@@ -1,8 +1,8 @@
-import { makeGetTaskUseCase } from "@/use-cases/factories/make-get-tasks-use-case";
-import { Request, Response, NextFunction } from "express";
+import { makeGetTaskUseCase } from "@/use-cases/factories/make-get-tasks-use-case"
+import { Request, Response, NextFunction } from "express"
 
-const LIMIT_DEFAULT = 10;
-const OFFSET_DEFAULT = 0;
+const LIMIT_DEFAULT = 10
+const OFFSET_DEFAULT = 0
 
 export async function getTasks(
   req: Request,
@@ -10,15 +10,15 @@ export async function getTasks(
   next: NextFunction
 ) {
   try {
-    const query = req.query;
+    const query = req.query
 
-    const limitParam = query?.limit ?? LIMIT_DEFAULT;
-    const offsetParam = query?.offset ?? OFFSET_DEFAULT;
+    const limitParam = query?.limit ?? LIMIT_DEFAULT
+    const offsetParam = query?.offset ?? OFFSET_DEFAULT
 
     const limit = Number(limitParam)
-    const offset = Number(offsetParam);
+    const offset = Number(offsetParam)
 
-    const getTasks = makeGetTaskUseCase();
+    const getTasks = makeGetTaskUseCase()
 
     const { tasks, meta } = await getTasks.execute({
       limit,
@@ -30,7 +30,7 @@ export async function getTasks(
       meta
     });
   } catch (error) {
-    console.log("error", error);
-    next(error);
+    console.log("error", error)
+    next(error)
   }
 };
