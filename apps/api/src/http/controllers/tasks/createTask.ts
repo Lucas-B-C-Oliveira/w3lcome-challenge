@@ -3,10 +3,6 @@ import { makeCreateTaskUseCase } from "@/use-cases/factories/make-create-task-us
 import { Request, Response, NextFunction } from "express";
 import { z } from "zod";
 
-export interface CreateTaskRequest {
-  title: string
-}
-
 export async function createTask(
   req: Request,
   res: Response,
