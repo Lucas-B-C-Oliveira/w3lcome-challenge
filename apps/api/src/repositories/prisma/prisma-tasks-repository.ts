@@ -10,7 +10,17 @@ export class PrismaTasksRepository implements TasksRepository {
       take: limit,
       skip: offset
     })
-    return tasks
+
+    const total = await prisma.task.count()
+
+    return {
+      tasks,
+      meta: {
+        offset,
+        limit,
+        total,
+      }
+    }
   }
 
   async edit(id: number, done: boolean) {

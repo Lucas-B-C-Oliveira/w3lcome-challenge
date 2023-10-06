@@ -1,6 +1,7 @@
 import { Task } from '@prisma/client'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error'
 import { TasksRepository } from '@/repositories/tasks-repository'
+import { Meta } from '@/@types'
 
 interface GetTasksUseCaseRequest {
   limit: number
@@ -9,6 +10,7 @@ interface GetTasksUseCaseRequest {
 
 interface GetTasksUseCaseResponse {
   tasks: Task[]
+  meta: Meta
 }
 
 export class GetTasksUseCase {
@@ -18,14 +20,15 @@ export class GetTasksUseCase {
     limit,
     offset
   }: GetTasksUseCaseRequest): Promise<GetTasksUseCaseResponse> {
-    const tasks = await this.tasksRepository.findAll(limit, offset)
+    const result = await this.tasksRepository.findAll(limit, offset)
 
-    if (!tasks) {
+    if (!result?.tasks) {
       throw new ResourceNotFoundError()
     }
 
     return {
-      tasks,
+      tasks: result?.tasks,
+      meta: result?.meta
     }
   }
 }
