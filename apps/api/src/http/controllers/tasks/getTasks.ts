@@ -10,10 +10,13 @@ export async function getTasks(
   next: NextFunction
 ) {
   try {
-    const body = req.body;
+    const query = req.query;
 
-    const limit = body?.limit ?? LIMIT_DEFAULT;
-    const offset = body?.offset ?? OFFSET_DEFAULT;
+    const limitParam = query?.limit ?? LIMIT_DEFAULT;
+    const offsetParam = query?.offset ?? OFFSET_DEFAULT;
+
+    const limit = Number(limitParam)
+    const offset = Number(offsetParam);
 
     const getTasks = makeGetTaskUseCase();
 
